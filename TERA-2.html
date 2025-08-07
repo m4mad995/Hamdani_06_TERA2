@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>tÉRA-2</title>
+
+    <style>
+    /* =========== css var ======= */
+        :root{
+            --primary-bg-color: #fdce82;
+            --secondary-bg-color: #6c402a;
+            --accent-color: #FFB047;
+            --neutral-color: #a0a0a0;
+            --text-dark: #333333;
+            --text-light: #ffffff;
+        }
+
+        /* style global */
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body{
+            font-family: 'Arial' , sans-serif;
+            overflow-x: hidden;
+            background-color: var(--primary-bg-color);
+        }
+
+        .blur-background {
+            filter: blur(5px);
+            pointer-events: none;
+        }
+
+
+        /* header */
+        .header{
+            background: linear-gradient(135deg, var(--accent-color) 0%, #D2955A 100%);
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .logo a{
+            text-decoration: none;
+            font-size: 26px;
+            font-weight: bold;
+            gap: 30px;
+        }
+
+        .nav-links a{
+            text-decoration: none;
+            color: var(--secondary-bg-color);
+            font-size: 20px;
+            font-weight: 539px;
+            transition: color 0.3s ease;
+            position: relative;
+        }
+
+        .nav-links a:hover {
+            color: var(--text-light);
+        }
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--secondary-bg-color);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .search-container {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .search-box {
+            padding: 8px 15px;
+            border: none;
+            background: rga(255, 255, 255, 0.2);
+            backdrop-filter: blur(10px);
+            color: var(--secondary-bg-color);
+        }
+
+        .search-box::placeholder{
+            color: var(--secondary-bg-color);
+            opacity: 0.7;
+        }
+
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+        }
+
+        .hamburger span{
+            width: 25px;
+            height: 3px;
+            background: var(--secondary-bg-color);
+            margin: 3px 0;
+            transition: 0.3s;
+        }
+
+        /* hero section */
+
+    </style>
+</head>
+<body>
+    <header class="header">
+        <nav class="navbar">
+            <div class="logo"><a href="#">TÉRA</a></div>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#tentang">Tentang Kami</a></li>
+                <li><a href="#menu">Menu</a></li>
+                <li><a href="#contact"></a>kontak</li>
+            </ul>
+            <div class="search-container">
+                <input type="text" class="search-box" placeholder="cari apa?">
+                <div class="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <section class="hero" id="home">
+
+    </section>
+</body>
+</html>
