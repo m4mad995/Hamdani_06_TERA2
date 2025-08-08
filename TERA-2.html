@@ -160,10 +160,10 @@
     font-size: 5rem;
     font-weight: bold;
     line-height: 1.2;
-    color: var(--text-light); /* Putih untuk kontras */
-    text-shadow: 3px 3px 12px rgba(0, 0, 0, 0.8); /* Shadow lebih kuat untuk readability */
+    color: var(--text-light);
+    text-shadow: 3px 3px 12px rgba(0, 0, 0, 0.8); 
     margin: 0;
-    max-width: 1200px; /* Batasi lebar teks agar tidak menutupi seluruh gambar */
+    max-width: 1200px;
 }
 
 .hero-title .highlight-orange {
@@ -288,11 +288,101 @@
             color: var(--text-dark);
             text-align: justify;
         }
+/* ====== MENU ======== */
+/* ==================== */
+        .menu {
+            padding: 80px 0;
+            background: var(--primary-bg-color);
+            min-height: 100vh;
+        }
 
+        .menu-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
 
+        .menu-title {
+            font-size: 3.5rem;
+            font-weight: bold;
+            text-align: center;
+            color: var(--text-light);
+            margin-bottom: 60px;
+        }
+
+        .menu-title > .highlight-orange {
+          color: var(--secondary-bg-color);  
+        }
+
+        .menu-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .menu-card {
+            background: var(--primary-bg-color);
+            border: 4px solid var(--accent-color);
+            border-radius: 20px;
+            padding: 20px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+
+        .menu-card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+        }
+
+        .card-header {
+            background: var(--secondary-bg-color);
+            color: var(--text-light);
+            padding: 10px 20px;
+            border-radius: 25px;
+            text-align: center;
+            margin-bottom: 15px;
+            font-weight: bold;
+            font-size: 1.1rem;
+        }
+
+        .card-image {
+            width: 100%;
+            height: 150px;
+            margin-bottom: 15px;
+            overflow: hidden;
+            border-radius: 10px;
+        }
+
+        .card-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 10px;
+        }
+
+        .card-description {
+            background: var(--primary-bg-color);
+            padding: 15px;
+            border-radius: 10px;
+            font-size: 0.95rem;
+            line-height: 1.6;
+            color: var(--text-dark);
+            /* overflow: hidden;
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;
+            word-wrap: break-word;
+            text-overflow: ellipsis;
+            white-space: normal; */
+        }
 
 
 /* ===== RESPONSIVE ===== */
+/* ====================== */
 @media (max-width: 1024px) {
     .hero {
         height: 31.25rem; /* 500px */
@@ -397,6 +487,94 @@
             </div>
         </div>
     </section>
+
+    <section class="menu" id="menu">
+    <div class="menu-container">
+        <h2 class="menu-title">
+            me<span class="highlight-orange">nu</span>
+        </h2>
+
+        <div class="menu-grid">
+            <div class="menu-card" onclick="openModal(0)">
+                <div class="card-header">
+                    <span class="product-name">Bagel</span>
+                </div>
+                <div class="card-image">
+                    <img src="bagel.jpg" alt="bagel">
+                </div>
+                <div class="card-description">
+                    <p>Nikmati cita rasa autentik roti bagel kami, teksturnya kenyal, aroma panggangnya harum,
+                        sempurna dipadukan dengan olesan keju atau selai favorit Anda.</p>
+                </div>
+            </div>
+
+            <div class="menu-card" onclick="openModal(1)">
+                <div class="card-header">
+                    <span class="product-name">Baguette</span>
+                </div>
+                <div class="card-image">
+                    <img src="baguette.jpg" alt="baguette">
+                </div>
+                <div class="card-description">
+                    <p>Roti baguette klasik dengan kulit renyah keemasan dan tekstur lembut di dalam. Cocok untuk
+                        sandwich, sup, atau dinikmati langsung dengan minyak zaitun berkualitas.</p>
+                </div>
+            </div>
+
+            <div class="menu-card" onclick="openModal(2)">
+                <div class="card-header">
+                    <span class="product-name">Brioche</span>
+                </div>
+                <div class="card-image">
+                    <img src="Brioche..jpg" alt="Brioche">
+                </div>
+                <div class="card-description">
+                    <p>Brioche lembut dengan aroma mentega yang menggoda, setiap gigitannya manis dan kaya rasa,
+                        sempurna untuk sarapan elegan atau camilan istimewa sepanjang hari.</p>
+                </div>
+            </div>
+
+            <div class="menu-card" onclick="openModal(3)">
+                <div class="card-header">
+                    <span class="product-name">Ciabatta</span>
+                </div>
+                <div class="card-image">
+                    <img src="ciabatta.jpg" alt="ciabatta">
+                </div>
+                <div class="card-description">
+                    <p>Roti ciabatta bertekstur ringan dengan pori besar dan kulit renyah, pilihan ideal untuk
+                        panini, bruschetta, atau dinikmati hangat dengan saus favorit Anda.</p>
+                </div>
+            </div>
+
+            <div class="menu-card" onclick="openModal(4)">
+                <div class="card-header">
+                    <span class="product-name">sourdough</span>
+                </div>
+                <div class="card-image">
+                    <img src="sourdough.jpg" alt="sourdough">
+                </div>
+                <div class="card-description">
+                    <p>Sourdough artisan dengan rasa asam alami dan tekstur chewy khas fermentasi lambat, roti sehat
+                        nan lezat yang sempurna untuk sarapan, sandwich, atau hidangan berkelas.</p>
+                </div>
+            </div>
+
+            <div class="menu-card" onclick="openModal()">
+                <div class="card-header">
+                    <span class="product-name">Tortilla</span>
+                </div>
+                <div class="card-image">
+                    <img src="Tortilla.jpg" alt="Tortilla">
+                </div>
+                <div class="card-description">
+                    <p>Sourdough artisan dengan rasa asam alami dan tekstur chewy khas fermentasi lambat, roti sehat
+                        nan lezat yang sempurna untuk sarapan, sandwich, atau hidangan berkelas.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
 
     <script>
         // untuk hamburger
