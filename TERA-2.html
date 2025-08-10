@@ -407,8 +407,12 @@
             font-size: 3.5rem;
             font-weight: bold;
             text-align: center;
-            color: var(--secondary-bg-color);
+            color: var(--text-light);
             margin-bottom: 60px;
+        }
+
+        .contact-title > span  {
+            color: var(--secondary-bg-color);
         }
 
         .contact-content {
@@ -635,6 +639,116 @@
             opacity: 0.8;
         }
 
+        /* ==== modal overlay ==== */
+        /* ======================= */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+            backdrop-filter: blur(5px);
+        }
+
+        .modal-overlay.active {
+            display: flex;
+        }
+
+        .modal-content {
+            background: var(--primary-bg-color);
+            border-radius: 20px;
+            max-width: 600px;
+            width: 90%;
+            max-height: 80vh;
+            overflow-y: auto;
+            position: relative;
+            animation: modalSlideIn 0.3s ease;
+        }
+
+        @keyframes modalSlideIn {
+            from {
+                opacity: 0;
+                transform: scale(0.7);
+            }
+
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        .modal-header {
+            background: var(--secondary-bg-color);
+            color: var(--text-light);
+            padding: 20px;
+            border-radius: 20px 20px 0 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .modal-title {
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+
+        .close-btn {
+            background: none;
+            border: none;
+            color: var(--text-light);
+            font-size: 2rem;
+            cursor: pointer;
+            padding: 0;
+            width: 30px;
+            height: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            transition: background 0.3s ease;
+        }
+
+        .close-btn:hover {
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        .modal-body {
+            padding: 30px;
+        }
+
+        .modal-image {
+            width: 100%;
+            height: 250px;
+            margin-bottom: 20px;
+            border-radius: 15px;
+            overflow: hidden;
+        }
+
+        .modal-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .modal-description {
+            background: var(--primary-bg-color);
+            padding: 20px;
+            border-radius: 15px;
+        }
+
+        .modal-description p {
+            font-size: 1rem;
+            line-height: 1.6;
+            color: var(--text-dark);
+            margin: 0;
+        }
+
+
         /* ===== RESPONSIVE ===== */
         /* ======================= */
         @media (max-width: 768px) {
@@ -745,17 +859,17 @@
 </head>
 
 <body>
-    <header class="header">
+     <header class="header">
         <nav class="navbar">
             <div class="logo"><a href="#">TÉRA</a></div>
             <ul class="nav-links">
                 <li><a href="#home">Home</a></li>
                 <li><a href="#tentang">Tentang Kami</a></li>
                 <li><a href="#menu">Menu</a></li>
-                <li><a href="#contact">kontak</a></li>
+                <li><a href="#contact">Kontak</a></li>
             </ul>
             <div class="search-container">
-                <input type="text" class="search-box" placeholder="cari apa?">
+                <input type="text" class="search-box" placeholder="search">
                 <div class="hamburger">
                     <span></span>
                     <span></span>
@@ -952,7 +1066,100 @@
         </div>
     </footer>
 
+    <div class="modal-overlay" id="modalOverlay" onclick="closeModal()">
+        <div class="modal-content" onclick="event.stopPropagation()">
+            <div class="modal-header">
+                <span class="modal-title"></span>
+                <button class="close-btn" onclick="closeModal()">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="modal-image">
+                    <img id="modalImage" src="" alt="Product Image">
+                </div>
+                <div class="modal-description">
+                    <p id="modalDescription"></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <script>
+        // Data produk untuk modal
+        const menuData = [
+            {
+                name: "bagel",
+                image: "bagel.jpg",
+                description: "Nikmati cita rasa autentik roti bagel kami, teksturnya kenyal, aroma panggangnya harum, sempurna dipadukan dengan olesan keju atau selai favorit Anda."
+            },
+            {
+                name: "baguette",
+                image: "baguette.jpg",
+                description: "Roti baguette klasik dengan kulit renyah keemasan dan tekstur lembut di dalam, cocok untuk sandwich, sup, atau dinikmati langsung dengan minyak zaitun berkualitas."
+            },
+            {
+                name: "Brioche",
+                image: "Brioche..jpg",
+                description: "Brioche lembut dengan aroma mentega yang menggoda, setiap gigitannya manis dan kaya rasa, sempurna untuk sarapan elegan atau camilan istimewa sepanjang hari."
+            },
+            {
+                name: "ciabatta",
+                image: "ciabatta.jpg",
+                description: "Roti ciabatta bertekstur ringan dengan pori besar dan kulit renyah, pilihan ideal untuk panini, bruschetta, atau dinikmati hangat dengan saus favorit Anda."
+            },
+            {
+                name: "sourdough",
+                image: "sourdough.jpg",
+                description: "Sourdough artisan dengan rasa asam alami dan tekstur chewy khas fermentasi lambat—roti sehat nan lezat yang sempurna untuk sarapan, sandwich, atau hidangan berkelas."
+            },
+            {
+                name: "Tortilla",
+                image: "Tortilla.jpg",
+                description: "Tortilla lembut dan lentur, dibuat dari bahan berkualitas, siap melengkapi hidangan favorit seperti wrap, taco, atau quesadilla dengan cita rasa autentik yang menggoda."
+            }
+        ];
+
+        function openModal(index) {
+            const modal = document.getElementById('modalOverlay');
+            const modalTitle = modal.querySelector('.modal-title');
+            const modalImage = document.getElementById('modalImage');
+            const modalDescription = document.getElementById('modalDescription');
+            const body = document.body;
+
+            modalTitle.textContent = menuData[index].name;
+            modalImage.src = menuData[index].image;
+            modalImage.alt = menuData[index].name;
+            modalDescription.textContent = menuData[index].description;
+
+            modal.classList.add('active');
+
+            const sectionsToBlur = document.querySelectorAll('.header, .hero, .about, .menu-container, .footer');
+            sectionsToBlur.forEach(section => {
+                section.classList.add('blur-background');
+            });
+
+            body.style.overflow = 'hidden';
+        }
+
+        function closeModal() {
+            const modal = document.getElementById('modalOverlay');
+            const body = document.body;
+
+            modal.classList.remove('active');
+
+            const sectionsToBlur = document.querySelectorAll('.header, .hero, .about, .menu-container, .footer');
+            sectionsToBlur.forEach(section => {
+                section.classList.remove('blur-background');
+            });
+
+            body.style.overflow = 'auto';
+        }
+
+        document.addEventListener('keydown', function (e) {
+            if (e.key === 'Escape') {
+                closeModal();
+            }
+        });
+
         // untuk hamburger
         const hamburger = document.querySelector('.hamburger');
         const navLinks = document.querySelector('.nav-links');
@@ -997,6 +1204,17 @@
             currentBgIndex = (currentBgIndex + 1) % backgrounds.length;
             backgrounds[currentBgIndex].classList.add('active');
         }, 3500);
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script>
+        // Inisialisasi AOS
+        AOS.init({
+            duration: 1000,
+            easing: 'ease',
+            mirror: true,
+            offset: 100,
+            delay: 0
+        });
     </script>
 </body>
 
