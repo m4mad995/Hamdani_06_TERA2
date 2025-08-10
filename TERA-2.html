@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>tÉRA-2</title>
 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <style>
         /* =========== css var ======= */
         :root {
@@ -52,7 +53,7 @@
             margin: 0 auto;
             padding: 0 20px;
         }
-        
+
         .logo a {
             text-decoration: none;
             font-size: 26px;
@@ -134,91 +135,89 @@
             transition: 0.3s;
         }
 
-/* ===== HERO SECTION ===== */
-/* ======================== */
-.hero {
-    position: relative; 
-    width: 100%; 
-    height: 37.5rem;
-    overflow: hidden;
-    display: flex;
-    align-items: center;
-    justify-content: center; 
-}
+        /* ===== HERO SECTION ===== */
+        /* ======================== */
+        .hero {
+            position: relative;
+            width: 100%;
+            height: 37.5rem;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
 
-.hero-content {
-    position: relative;
-    z-index: 3;
-    width: 100%;
-    text-align: center;
-    padding-left: 0 20px;
-    max-width: 800px;
-    /* margin: 0 auto; */
-}
+        .hero-content {
+            position: relative;
+            z-index: 3;
+            width: 100%;
+            text-align: center;
+            padding-left: 0 20px;
+            max-width: 800px;
+            /* margin: 0 auto; */
+        }
 
-.hero-title {
-    font-size: 5rem;
-    font-weight: bold;
-    line-height: 1.2;
-    color: var(--text-light);
-    text-shadow: 3px 3px 12px rgba(0, 0, 0, 0.8); 
-    margin: 0;
-    max-width: 1200px;
-}
+        .hero-title {
+            font-size: 5rem;
+            font-weight: bold;
+            line-height: 1.2;
+            color: var(--text-light);
+            text-shadow: 3px 3px 12px rgba(0, 0, 0, 0.8);
+            margin: 0;
+            max-width: 1200px;
+        }
 
-.hero-title .highlight-orange {
-    color: #FFB047;
-}
+        .hero-title .highlight-orange {
+            color: #FFB047;
+        }
 
-/* ===== BACKGROUND SLIDESHOW ===== */
-.bread-image {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    z-index: 1; /* Posisikan di bawah hero-content */
-    opacity: 0;
-    transition: opacity 2s ease-in-out;
-}
+        /* ===== BACKGROUND SLIDESHOW ===== */
+        .bread-image {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            z-index: 1;
+            opacity: 0;
+            transition: opacity 2s ease-in-out;
+        }
 
-.bread-image.active {
-    opacity: 1;
-}
+        .bread-image.active {
+            opacity: 1;
+        }
 
-/* ===== OVERLAY UNTUK READABILITY (HANYA DI AREA TEKS) ===== */
-.hero::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%; /* Buat overlay 100% lebar */
-    height: 100%; /* Buat overlay 100% tinggi */
-    background: linear-gradient(
-        90deg,
-        rgba(0, 0, 0, 0.4) 0%, /* Perkuat overlay */
-        rgba(0, 0, 0, 0.1) 70%,
-        rgba(0, 0, 0, 0) 100%
-    );
-    z-index: 2; /* Di atas gambar, di bawah teks */
-}
+        /* ===== OVERLAY UNTUK READABILITY (HANYA DI AREA TEKS) ===== */
+        .hero::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg,
+                    rgba(0, 0, 0, 0.4) 0%,
+                    rgba(0, 0, 0, 0.1) 70%,
+                    rgba(0, 0, 0, 0) 100%);
+            z-index: 2;
+        }
 
-.hero::before {
-    content: '';
-    position: absolute;
-    width: 100%;
-    height: 35%;
-    bottom: 0;
-    background: linear-gradient(0deg, var(--primary-bg-color) 8%, rgba(255, 255, 255, 0) 50%);
-    z-index: 3; /* Posisikan di atas semua elemen lain */
-}
+        .hero::before {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 35%;
+            bottom: 0;
+            background: linear-gradient(0deg, var(--primary-bg-color) 8%, rgba(255, 255, 255, 0) 50%);
+            z-index: 3; /* Posisikan di atas semua elemen lain */
+        }
 
-/* ===== about section ===== */
-/* ========================= */
-.about {
+        /* ===== about section ===== */
+        /* ========================= */
+        .about {
             padding: 80px 0;
             background: var(--primary-bg-color);
             min-height: 100vh;
@@ -240,7 +239,7 @@
             margin-bottom: 60px;
         }
 
-        .about-title > span {
+        .about-title>span {
             color: var(--secondary-bg-color);
         }
 
@@ -288,8 +287,9 @@
             color: var(--text-dark);
             text-align: justify;
         }
-/* ====== MENU ======== */
-/* ==================== */
+
+        /* ====== MENU ======== */
+        /* ==================== */
         .menu {
             padding: 80px 0;
             background: var(--primary-bg-color);
@@ -310,8 +310,8 @@
             margin-bottom: 60px;
         }
 
-        .menu-title > .highlight-orange {
-          color: var(--secondary-bg-color);  
+        .menu-title>.highlight-orange {
+            color: var(--secondary-bg-color);
         }
 
         .menu-grid {
@@ -522,7 +522,121 @@
             transform: translateY(0);
         }
 
+        /* ====== footer ===== */
+        /* =================== */
+        .footer {
+            background-color: var(--secondary-bg-color);
+            padding: 40px 0 20px 0;
+            color: var(--text-light);
+        }
+
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            text-align: center;
+        }
+
+        .social-media {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+
+        .social-icon {
+            width: 40px;
+            height: 40px;
+            background-color: var(--accent-color);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--secondary-bg-color);
+            text-decoration: none;
+            font-size: 18px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .social-icon:hover {
+            background-color: #D2955A;
+            transform: translateY(-3px);
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .footer-nav {
+            margin-bottom: 20px;
+        }
+
+        .footer-nav ul {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .footer-nav a {
+            text-decoration: none;
+            color: var(--text-light);
+            font-weight: 500;
+            font-size: 16px;
+            transition: color 0.3s ease;
+            position: relative;
+        }
+
+        .footer-nav a:hover {
+            color: var(--accent-color);
+        }
+
+        .footer-nav a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--accent-color);
+            transition: width 0.3s ease;
+        }
+
+        .footer-nav a:hover::after {
+            width: 100%;
+        }
+
+        .footer-divider {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 20px 0;
+        }
+
+        .divider-line {
+            height: 1px;
+            background-color: var(--text-light);
+            flex: 1;
+            opacity: 0.3;
+        }
+
+        .diamond {
+            width: 12px;
+            height: 12px;
+            background-color: var(--text-light);
+            transform: rotate(45deg);
+            margin: 0 20px;
+            opacity: 0.5;
+        }
+
+        .footer-copyright {
+            font-size: 14px;
+            color: var(--text-light);
+            opacity: 0.8;
+        }
+
         /* ===== RESPONSIVE ===== */
+        /* ======================= */
         @media (max-width: 768px) {
             .contact-content {
                 grid-template-columns: 1fr;
@@ -569,58 +683,64 @@
             }
         }
 
-/* ===== RESPONSIVE ===== */
-/* ====================== */
-/* untuk hero / home */
-@media (max-width: 1024px) {
-    .hero {
-        height: 31.25rem; /* 500px */
-    }
-    
-    .hero-title {
-        font-size: 3.5rem;
-    }
-}
+        /* ===== RESPONSIVE ===== */
+        /* ====================== */
+        /* untuk hero / home */
+        @media (max-width: 1024px) {
+            .hero {
+                height: 31.25rem;
+                /* 500px */
+            }
 
-@media (max-width: 768px) {
-    .hero {
-        height: 25rem; /* 400px */
-    }
-    
-    .hero-title {
-        font-size: 2.5rem;
-    }
-    
-    .hero-content {
-        padding-left: 30px; /* Lebih kecil di mobile */
-        text-align: left; /* Tetap rata kiri */
-    }
-    
-    /* Mobile: focus tengah sedikit kanan */
-    .bread-image {
-        background-position: 60% center;
-    }
-    
-    /* Overlay lebih besar di mobile untuk readability */
-    .hero::after {
-        width: 70%;
-        height: 70%;
-    }
-}
+            .hero-title {
+                font-size: 3.5rem;
+            }
+        }
 
-@media (max-width: 480px) {
-    .hero {
-        height: 21.875rem; /* 350px */
-    }
-    
-    .hero-title {
-        font-size: 2rem;
-    }
-    
-    .hero-content {
-        padding-left: 20px; /* Lebih kecil lagi di mobile kecil */
-    }
-}
+        @media (max-width: 768px) {
+            .hero {
+                height: 25rem;
+                /* 400px */
+            }
+
+            .hero-title {
+                font-size: 2.5rem;
+            }
+
+            .hero-content {
+                padding-left: 30px;
+                /* Lebih kecil di mobile */
+                text-align: left;
+                /* Tetap rata kiri */
+            }
+
+            /* Mobile: focus tengah sedikit kanan */
+            .bread-image {
+                background-position: 60% center;
+            }
+
+            /* Overlay lebih besar di mobile untuk readability */
+            .hero::after {
+                width: 70%;
+                height: 70%;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero {
+                height: 21.875rem;
+                /* 350px */
+            }
+
+            .hero-title {
+                font-size: 2rem;
+            }
+
+            .hero-content {
+                padding-left: 20px;
+                /* Lebih kecil lagi di mobile kecil */
+            }
+        }
     </style>
 </head>
 
@@ -646,21 +766,22 @@
     </header>
 
     <section class="hero" id="home">
-    <div class="hero-content">
-        <h1 class="hero-title" data-aos="fade-right">
-            Nikmatnya <span class="highlight-orange">Roti</span> dari Bahan <span class="highlight-orange">Terbaik</span>.
-        </h1>
-    </div>
+        <div class="hero-content">
+            <h1 class="hero-title" data-aos="fade-right">
+                Nikmatnya <span class="highlight-orange">Roti</span> dari Bahan <span
+                    class="highlight-orange">Terbaik</span>.
+            </h1>
+        </div>
 
-    <div class="bread-image active" style="background-image: url(bagel.jpg);"></div>
-    <div class="bread-image" style="background-image: url(baguette.jpg);"></div>
-    <div class="bread-image" style="background-image: url(Brioche..jpg);"></div>
-    <div class="bread-image" style="background-image: url(ciabatta.jpg);"></div>
-    <div class="bread-image" style="background-image: url(sourdough.jpg);"></div>
-    <div class="bread-image" style="background-image: url(Tortilla.jpg);"></div>
-</section>
+        <div class="bread-image active" style="background-image: url(bagel.jpg);"></div>
+        <div class="bread-image" style="background-image: url(baguette.jpg);"></div>
+        <div class="bread-image" style="background-image: url(Brioche..jpg);"></div>
+        <div class="bread-image" style="background-image: url(ciabatta.jpg);"></div>
+        <div class="bread-image" style="background-image: url(sourdough.jpg);"></div>
+        <div class="bread-image" style="background-image: url(Tortilla.jpg);"></div>
+    </section>
 
-<section class="about" id="tentang">
+    <section class="about" id="tentang">
         <div class="about-container">
             <h2 class="about-title" data-aos="zoom-in-up">Tentang <span class="highlight-orange">Kami</span></h2>
             <div class="about-content">
@@ -678,94 +799,94 @@
     </section>
 
     <section class="menu" id="menu">
-    <div class="menu-container">
-        <h2 class="menu-title">
-            me<span class="highlight-orange">nu</span>
-        </h2>
+        <div class="menu-container">
+            <h2 class="menu-title">
+                me<span class="highlight-orange">nu</span>
+            </h2>
 
-        <div class="menu-grid">
-            <div class="menu-card" onclick="openModal(0)">
-                <div class="card-header">
-                    <span class="product-name">Bagel</span>
+            <div class="menu-grid">
+                <div class="menu-card" onclick="openModal(0)">
+                    <div class="card-header">
+                        <span class="product-name">Bagel</span>
+                    </div>
+                    <div class="card-image">
+                        <img src="bagel.jpg" alt="bagel">
+                    </div>
+                    <div class="card-description">
+                        <p>Nikmati cita rasa autentik roti bagel kami, teksturnya kenyal, aroma panggangnya harum,
+                            sempurna dipadukan dengan olesan keju atau selai favorit Anda.</p>
+                    </div>
                 </div>
-                <div class="card-image">
-                    <img src="bagel.jpg" alt="bagel">
-                </div>
-                <div class="card-description">
-                    <p>Nikmati cita rasa autentik roti bagel kami, teksturnya kenyal, aroma panggangnya harum,
-                        sempurna dipadukan dengan olesan keju atau selai favorit Anda.</p>
-                </div>
-            </div>
 
-            <div class="menu-card" onclick="openModal(1)">
-                <div class="card-header">
-                    <span class="product-name">Baguette</span>
+                <div class="menu-card" onclick="openModal(1)">
+                    <div class="card-header">
+                        <span class="product-name">Baguette</span>
+                    </div>
+                    <div class="card-image">
+                        <img src="baguette.jpg" alt="baguette">
+                    </div>
+                    <div class="card-description">
+                        <p>Roti baguette klasik dengan kulit renyah keemasan dan tekstur lembut di dalam. Cocok untuk
+                            sandwich, sup, atau dinikmati langsung dengan minyak zaitun berkualitas.</p>
+                    </div>
                 </div>
-                <div class="card-image">
-                    <img src="baguette.jpg" alt="baguette">
-                </div>
-                <div class="card-description">
-                    <p>Roti baguette klasik dengan kulit renyah keemasan dan tekstur lembut di dalam. Cocok untuk
-                        sandwich, sup, atau dinikmati langsung dengan minyak zaitun berkualitas.</p>
-                </div>
-            </div>
 
-            <div class="menu-card" onclick="openModal(2)">
-                <div class="card-header">
-                    <span class="product-name">Brioche</span>
+                <div class="menu-card" onclick="openModal(2)">
+                    <div class="card-header">
+                        <span class="product-name">Brioche</span>
+                    </div>
+                    <div class="card-image">
+                        <img src="Brioche..jpg" alt="Brioche">
+                    </div>
+                    <div class="card-description">
+                        <p>Brioche lembut dengan aroma mentega yang menggoda, setiap gigitannya manis dan kaya rasa,
+                            sempurna untuk sarapan elegan atau camilan istimewa sepanjang hari.</p>
+                    </div>
                 </div>
-                <div class="card-image">
-                    <img src="Brioche..jpg" alt="Brioche">
-                </div>
-                <div class="card-description">
-                    <p>Brioche lembut dengan aroma mentega yang menggoda, setiap gigitannya manis dan kaya rasa,
-                        sempurna untuk sarapan elegan atau camilan istimewa sepanjang hari.</p>
-                </div>
-            </div>
 
-            <div class="menu-card" onclick="openModal(3)">
-                <div class="card-header">
-                    <span class="product-name">Ciabatta</span>
+                <div class="menu-card" onclick="openModal(3)">
+                    <div class="card-header">
+                        <span class="product-name">Ciabatta</span>
+                    </div>
+                    <div class="card-image">
+                        <img src="ciabatta.jpg" alt="ciabatta">
+                    </div>
+                    <div class="card-description">
+                        <p>Roti ciabatta bertekstur ringan dengan pori besar dan kulit renyah, pilihan ideal untuk
+                            panini, bruschetta, atau dinikmati hangat dengan saus favorit Anda.</p>
+                    </div>
                 </div>
-                <div class="card-image">
-                    <img src="ciabatta.jpg" alt="ciabatta">
-                </div>
-                <div class="card-description">
-                    <p>Roti ciabatta bertekstur ringan dengan pori besar dan kulit renyah, pilihan ideal untuk
-                        panini, bruschetta, atau dinikmati hangat dengan saus favorit Anda.</p>
-                </div>
-            </div>
 
-            <div class="menu-card" onclick="openModal(4)">
-                <div class="card-header">
-                    <span class="product-name">sourdough</span>
+                <div class="menu-card" onclick="openModal(4)">
+                    <div class="card-header">
+                        <span class="product-name">sourdough</span>
+                    </div>
+                    <div class="card-image">
+                        <img src="sourdough.jpg" alt="sourdough">
+                    </div>
+                    <div class="card-description">
+                        <p>Sourdough artisan dengan rasa asam alami dan tekstur chewy khas fermentasi lambat, roti sehat
+                            nan lezat yang sempurna untuk sarapan, sandwich, atau hidangan berkelas.</p>
+                    </div>
                 </div>
-                <div class="card-image">
-                    <img src="sourdough.jpg" alt="sourdough">
-                </div>
-                <div class="card-description">
-                    <p>Sourdough artisan dengan rasa asam alami dan tekstur chewy khas fermentasi lambat, roti sehat
-                        nan lezat yang sempurna untuk sarapan, sandwich, atau hidangan berkelas.</p>
-                </div>
-            </div>
 
-            <div class="menu-card" onclick="openModal()">
-                <div class="card-header">
-                    <span class="product-name">Tortilla</span>
-                </div>
-                <div class="card-image">
-                    <img src="Tortilla.jpg" alt="Tortilla">
-                </div>
-                <div class="card-description">
-                    <p>Sourdough artisan dengan rasa asam alami dan tekstur chewy khas fermentasi lambat, roti sehat
-                        nan lezat yang sempurna untuk sarapan, sandwich, atau hidangan berkelas.</p>
+                <div class="menu-card" onclick="openModal()">
+                    <div class="card-header">
+                        <span class="product-name">Tortilla</span>
+                    </div>
+                    <div class="card-image">
+                        <img src="Tortilla.jpg" alt="Tortilla">
+                    </div>
+                    <div class="card-description">
+                        <p>Sourdough artisan dengan rasa asam alami dan tekstur chewy khas fermentasi lambat, roti sehat
+                            nan lezat yang sempurna untuk sarapan, sandwich, atau hidangan berkelas.</p>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-</section>
+    </section>
 
-<section class="contact" id="contact">
+    <section class="contact" id="contact">
         <div class="contact-container">
             <h2 class="contact-title">Hubungi <span class="highlight-red">Kami</span></h2>
 
@@ -781,7 +902,7 @@
 
                     <!-- Form (Kanan) -->
                     <div class="contact-form" data-aos="zoom-in-up" data-aos-delay="450" data-aos-mirror="true">
-                            <form class="form-container">
+                        <form class="form-container">
                             <div class="form-group">
                                 <label for="nama">Nama</label>
                                 <input type="text" id="nama" name="nama" required>
@@ -804,6 +925,32 @@
             </div>
         </div>
     </section>
+
+    <footer class="footer" id="kontak">
+        <div class="footer-container">
+            <div class="social-media">
+                <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+                <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+                <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+            </div>
+            <div class="footer-nav">
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#tentang">Tentang Kami</a></li>
+                    <li><a href="#menu">Menu</a></li>
+                    <li><a href="#contact">Kontak</a></li>
+                </ul>
+            </div>
+            <div class="footer-divider">
+                <div class="divider-line"></div>
+                <div class="diamond"></div>
+                <div class="divider-line"></div>
+            </div>
+            <div class="footer-copyright">
+                <p>&copy; 2025 TÉRA. | Created by Achmad Hamdani Hilman.</p>
+            </div>
+        </div>
+    </footer>
 
     <script>
         // untuk hamburger
